@@ -13,6 +13,7 @@ export default function Header() {
     { name: '팀 조합', href: '/team-comps' },
     { name: '메타', href: '/meta' },
     { name: '도구', href: '/tools' },
+    { name: '영상', href: '/videos' },
     { name: '초보 가이드', href: '/guides' },
     { name: '커뮤니티', href: '/community' },
   ];
