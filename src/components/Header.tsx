@@ -8,11 +8,12 @@ export default function Header() {
 
   const navItems = [
     { name: '맵 전략', href: '/maps' },
-    { name: '라인업 가이드', href: '/lineups' },
-    { name: '요원 가이드', href: '/agents' },
+    { name: '라인업', href: '/lineups' },
+    { name: '요원', href: '/agents' },
     { name: '팀 조합', href: '/team-comps' },
-    { name: '메타 분석', href: '/meta' },
-    { name: '전략 공유', href: '/community' },
+    { name: '메타', href: '/meta' },
+    { name: '초보 가이드', href: '/guides' },
+    { name: '커뮤니티', href: '/community' },
   ];
 
   return (
