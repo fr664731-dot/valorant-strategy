@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import AdBanner from '@/components/AdBanner';
 import { agents } from '@/data/agents';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '요원 가이드',
+  description: '발로란트 모든 요원의 스킬 활용법, 팁, 시너지, 카운터 정보를 확인하세요. 제트, 레이나, 소바, 오멘 등 22개 요원 완벽 가이드.',
+  keywords: ['발로란트 요원', '발로란트 캐릭터', '제트 공략', '소바 공략', '오멘 공략'],
+};
 
 const roleColors: Record<string, string> = {
   '타격대': 'bg-red-500/20 text-red-400',

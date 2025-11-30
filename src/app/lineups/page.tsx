@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import AdBanner from '@/components/AdBanner';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '라인업 가이드',
+  description: '발로란트 요원별 스킬 라인업 가이드. 소바 리콘, 바이퍼 원웨이, 킬조이 나노스웜 등 맵별 라인업 위치를 확인하세요.',
+  keywords: ['발로란트 라인업', '소바 라인업', '바이퍼 라인업', '킬조이 라인업', '원웨이 스모크'],
+};
 
 const lineupAgents = [
   { id: 'sova', name: '소바', icon: '🏹', skills: ['리콘 볼트', '쇼크 다트'] },

@@ -2,9 +2,25 @@ import AdBanner from '@/components/AdBanner';
 import Link from 'next/link';
 import { getAgentById, agents } from '@/data/agents';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 export function generateStaticParams() {
   return agents.map((agent) => ({ agentId: agent.id }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ agentId: string }> }): Promise<Metadata> {
+  const { agentId } = await params;
+  const agent = getAgentById(agentId);
+  
+  if (!agent) {
+    return { title: '요원을 찾을 수 없습니다' };
+  }
+
+  return {
+    title: `${agent.name} 가이드 - 스킬, 팁, 카운터`,
+    description: `발로란트 ${agent.name} 완벽 가이드. ${agent.role} ${agent.name}의 스킬 활용법, 플레이 팁, 시너지 요원, 카운터 정보를 확인하세요.`,
+    keywords: [`발로란트 ${agent.name}`, `${agent.name} 공략`, `${agent.name} 팁`, `${agent.name} 스킬`],
+  };
 }
 
 const roleColors: Record<string, string> = {

@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import AdBanner from '@/components/AdBanner';
 import { maps } from '@/data/maps';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '맵별 전략 가이드',
+  description: '발로란트 모든 맵의 공격/수비 전략, 콜아웃, 추천 요원을 확인하세요. 어센트, 바인드, 헤이븐, 스플릿 등 11개 맵 완벽 공략.',
+  keywords: ['발로란트 맵', '발로란트 전략', '어센트 공략', '바인드 공략', '헤이븐 공략'],
+};
 
 const difficultyColors: Record<string, string> = {
   '쉬움': 'bg-green-500/20 text-green-400',

@@ -1,5 +1,12 @@
 import AdBanner from '@/components/AdBanner';
 import { agentMeta, metaInsights } from '@/data/meta';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '메타 분석 & 티어 리스트',
+  description: '발로란트 현재 시즌 요원 티어 리스트, 픽률, 승률 분석. S티어부터 C티어까지 모든 요원의 메타 분석을 확인하세요.',
+  keywords: ['발로란트 메타', '발로란트 티어', '발로란트 픽률', '발로란트 승률', '요원 티어'],
+};
 
 const tierStyles: Record<string, { bg: string; border: string; text: string }> = {
   S: { bg: 'bg-yellow-500/10', border: 'border-yellow-500/50', text: 'text-yellow-400' },

@@ -1,5 +1,12 @@
 import AdBanner from '@/components/AdBanner';
 import { teamComps } from '@/data/teamComps';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '팀 조합 추천',
+  description: '발로란트 맵별 추천 팀 조합과 시너지 분석. 어센트, 바인드, 헤이븐 등 각 맵에 최적화된 S티어 팀 조합을 확인하세요.',
+  keywords: ['발로란트 팀조합', '발로란트 조합', '발로란트 픽', '맵별 조합'],
+};
 
 const tierColors: Record<string, string> = {
   'S': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50',

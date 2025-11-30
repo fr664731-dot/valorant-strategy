@@ -2,9 +2,25 @@ import AdBanner from '@/components/AdBanner';
 import Link from 'next/link';
 import { getMapById, maps } from '@/data/maps';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 export function generateStaticParams() {
   return maps.map((map) => ({ mapId: map.id }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ mapId: string }> }): Promise<Metadata> {
+  const { mapId } = await params;
+  const map = getMapById(mapId);
+  
+  if (!map) {
+    return { title: '맵을 찾을 수 없습니다' };
+  }
+
+  return {
+    title: `${map.name} 전략 가이드 - 공격/수비 전략`,
+    description: `발로란트 ${map.name} 완벽 공략. 공격 전략, 수비 전략, 콜아웃, 추천 요원 정보를 확인하세요.`,
+    keywords: [`발로란트 ${map.name}`, `${map.name} 공략`, `${map.name} 전략`, `${map.name} 콜아웃`],
+  };
 }
 
 const difficultyColors: Record<string, string> = {
