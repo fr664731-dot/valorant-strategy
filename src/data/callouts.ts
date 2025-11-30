@@ -47,7 +47,6 @@ export const mapCallouts: MapCallouts[] = [
         { name: 'A 헤븐', alias: ['A 천국'], description: 'A 사이트 높은 위치' },
         { name: 'A 헬', alias: ['A 지옥'], description: 'A 사이트 낮은 위치' },
         { name: 'A 트리', alias: ['나무'], description: 'A 사이트 나무 근처' },
-      ],
         { name: 'A 제너레이터', alias: ['제너', '발전기'], description: 'A 사이트 발전기 뒤' },
         { name: 'A 와인', alias: ['와인룸'], description: 'A 사이트 와인 저장고' },
       ],
