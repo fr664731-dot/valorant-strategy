@@ -12,6 +12,7 @@ export interface Lineup {
   steps: string[];
   tips: string[];
   tags: string[];
+  videoId?: string; // 유튜브 영상 ID (선택)
 }
 
 export const lineups: Lineup[] = [

@@ -1,9 +1,10 @@
 import AdBanner from '@/components/AdBanner';
 import Link from 'next/link';
-import { getLineupsByAgent, lineups } from '@/data/lineups';
-import { getAgentById, agents } from '@/data/agents';
+import { getLineupsByAgent } from '@/data/lineups';
+import { getAgentById } from '@/data/agents';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import YouTubeEmbed from '@/components/YouTubeEmbed';
 
 const lineupAgentIds = ['sova', 'viper', 'killjoy', 'cypher', 'brimstone', 'kayo', 'fade', 'gekko'];
 
@@ -84,6 +85,13 @@ export default async function AgentLineupsPage({ params }: { params: Promise<{ a
                   
                   <h3 className="text-lg font-semibold mb-2">{lineup.title}</h3>
                   <p className="text-gray-400 text-sm mb-4">{lineup.description}</p>
+                  
+                  {/* 유튜브 영상 */}
+                  {lineup.videoId && (
+                    <div className="mb-4">
+                      <YouTubeEmbed videoId={lineup.videoId} title={lineup.title} />
+                    </div>
+                  )}
                   
                   <div className="mb-4">
                     <p className="text-sm text-[#ff4655] font-medium mb-2">사용 방법:</p>
