@@ -51,14 +51,14 @@ export default function LineupsPage() {
         <h2 className="text-xl font-semibold mb-4">인기 라인업</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { agent: '소바', map: '어센트', title: 'A 사이트 리콘 볼트', views: '12.5K' },
-            { agent: '바이퍼', map: '브리즈', title: 'A 사이트 원웨이 스모크', views: '8.3K' },
-            { agent: '킬조이', map: '어센트', title: 'B 사이트 나노스웜 세팅', views: '7.1K' },
-            { agent: '소바', map: '바인드', title: 'B 사이트 쇼크 다트 콤보', views: '6.8K' },
-            { agent: '브림스톤', map: '헤이븐', title: 'C 사이트 몰로토프 라인업', views: '5.9K' },
-            { agent: '사이퍼', map: '스플릿', title: 'A 사이트 원웨이 케이지', views: '5.2K' },
+            { agent: '소바', agentId: 'sova', map: '어센트', title: 'A 사이트 리콘 볼트', views: '12.5K' },
+            { agent: '바이퍼', agentId: 'viper', map: '브리즈', title: 'A 사이트 원웨이 스모크', views: '8.3K' },
+            { agent: '킬조이', agentId: 'killjoy', map: '어센트', title: 'B 사이트 나노스웜 세팅', views: '7.1K' },
+            { agent: '소바', agentId: 'sova', map: '바인드', title: 'B 사이트 쇼크 다트 콤보', views: '6.8K' },
+            { agent: '브림스톤', agentId: 'brimstone', map: '헤이븐', title: 'C 사이트 몰로토프 라인업', views: '5.9K' },
+            { agent: '사이퍼', agentId: 'cypher', map: '스플릿', title: 'A 사이트 원웨이 케이지', views: '5.2K' },
           ].map((lineup, i) => (
-            <div key={i} className="bg-[#1f2326] border border-gray-700 rounded-xl overflow-hidden card-hover">
+            <Link key={i} href={`/lineups/${lineup.agentId}`} className="bg-[#1f2326] border border-gray-700 rounded-xl overflow-hidden card-hover block">
               <div className="h-32 bg-gradient-to-br from-[#ff4655]/20 to-[#0f1923] flex items-center justify-center">
                 <span className="text-4xl">🎯</span>
               </div>
@@ -70,7 +70,7 @@ export default function LineupsPage() {
                 <h3 className="font-semibold">{lineup.title}</h3>
                 <p className="text-gray-500 text-sm mt-1">조회수 {lineup.views}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
