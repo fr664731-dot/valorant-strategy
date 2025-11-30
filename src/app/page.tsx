@@ -101,16 +101,36 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold mb-8">최신 전략</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-[#1f2326] border border-gray-700 rounded-xl overflow-hidden card-hover">
-              <div className="h-40 bg-gradient-to-br from-[#ff4655]/20 to-[#0f1923]" />
-              <div className="p-4">
-                <span className="text-xs text-[#ff4655] font-medium">어센트</span>
-                <h3 className="text-lg font-semibold mt-1">A 사이트 빠른 러쉬 전략</h3>
-                <p className="text-gray-400 text-sm mt-2">제트와 레이즈를 활용한 공격 전략...</p>
-              </div>
+          <Link href="/maps/ascent" className="bg-[#1f2326] border border-gray-700 rounded-xl overflow-hidden card-hover group">
+            <div className="h-40 bg-gradient-to-br from-[#ff4655]/30 to-[#0f1923] flex items-center justify-center">
+              <span className="text-6xl group-hover:scale-110 transition-transform">🏰</span>
             </div>
-          ))}
+            <div className="p-4">
+              <span className="text-xs text-[#ff4655] font-medium">어센트</span>
+              <h3 className="text-lg font-semibold mt-1">미드 컨트롤 전략</h3>
+              <p className="text-gray-400 text-sm mt-2">오멘 스모크와 소바 리콘으로 미드 장악하기</p>
+            </div>
+          </Link>
+          <Link href="/maps/bind" className="bg-[#1f2326] border border-gray-700 rounded-xl overflow-hidden card-hover group">
+            <div className="h-40 bg-gradient-to-br from-blue-500/30 to-[#0f1923] flex items-center justify-center">
+              <span className="text-6xl group-hover:scale-110 transition-transform">🌀</span>
+            </div>
+            <div className="p-4">
+              <span className="text-xs text-blue-400 font-medium">바인드</span>
+              <h3 className="text-lg font-semibold mt-1">텔레포터 활용 전략</h3>
+              <p className="text-gray-400 text-sm mt-2">텔레포터로 빠른 로테이션과 기습 플레이</p>
+            </div>
+          </Link>
+          <Link href="/maps/haven" className="bg-[#1f2326] border border-gray-700 rounded-xl overflow-hidden card-hover group">
+            <div className="h-40 bg-gradient-to-br from-green-500/30 to-[#0f1923] flex items-center justify-center">
+              <span className="text-6xl group-hover:scale-110 transition-transform">🏛️</span>
+            </div>
+            <div className="p-4">
+              <span className="text-xs text-green-400 font-medium">헤이븐</span>
+              <h3 className="text-lg font-semibold mt-1">3사이트 수비 전략</h3>
+              <p className="text-gray-400 text-sm mt-2">킬조이와 사이퍼로 효율적인 사이트 수비</p>
+            </div>
+          </Link>
         </div>
       </section>
     </div>
