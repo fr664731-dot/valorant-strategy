@@ -26,7 +26,7 @@ export default function VideosPage() {
         </div>
       </section>
 
-      <AdBanner />
+      <AdBanner slot="videos-top" format="horizontal" />
 
       {/* Category Filter */}
       <section className="max-w-7xl mx-auto px-4 py-8">
@@ -112,7 +112,7 @@ export default function VideosPage() {
         )}
       </section>
 
-      <AdBanner />
+      <AdBanner slot="videos-bottom" format="horizontal" />
     </div>
   );
 }

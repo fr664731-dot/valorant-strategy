@@ -189,7 +189,7 @@ export default function PatchNotesPage() {
         </div>
       </section>
 
-      <AdBanner />
+      <AdBanner slot="patch-notes-top" format="horizontal" />
 
       {/* Patch Notes List */}
       <section className="max-w-4xl mx-auto px-4 py-8">
@@ -320,7 +320,7 @@ export default function PatchNotesPage() {
         </div>
       </section>
 
-      <AdBanner />
+      <AdBanner slot="patch-notes-bottom" format="horizontal" />
 
       {/* Official Link */}
       <section className="max-w-4xl mx-auto px-4 py-8 text-center">

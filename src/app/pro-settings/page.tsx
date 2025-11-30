@@ -34,7 +34,7 @@ export default function ProSettingsPage() {
         </div>
       </section>
 
-      <AdBanner />
+      <AdBanner slot="pro-settings-top" format="horizontal" />
 
       {/* Average Stats */}
       <section className="max-w-7xl mx-auto px-4 py-8">
@@ -170,7 +170,7 @@ export default function ProSettingsPage() {
         </div>
       </section>
 
-      <AdBanner />
+      <AdBanner slot="pro-settings-bottom" format="horizontal" />
 
       {/* Tips Section */}
       <section className="max-w-7xl mx-auto px-4 py-8">
