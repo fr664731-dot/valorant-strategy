@@ -169,3 +169,130 @@ export const teamComps: TeamComp[] = [
 export function getTeamCompsByMap(map: string): TeamComp[] {
   return teamComps.filter(comp => comp.map === map);
 }
+
+
+// 추가 팀 조합들
+const additionalTeamComps: TeamComp[] = [
+  // 어센트 추가
+  {
+    id: 'ascent-3',
+    map: '어센트',
+    name: '페이드 조합',
+    agents: ['제트', '페이드', '오멘', '킬조이', '케이오'],
+    description: '소바 대신 페이드를 사용하는 조합. 시즈로 적을 묶고 진입합니다.',
+    tier: 'A',
+    playstyle: '정보 중심',
+    strengths: ['강력한 진입 지원', '적 무력화', '정보 수집'],
+    weaknesses: ['라인업 의존도 낮음', '장거리 정찰 약함']
+  },
+  // 바인드 추가
+  {
+    id: 'bind-3',
+    map: '바인드',
+    name: '요루 기습 조합',
+    agents: ['요루', '스카이', '브림스톤', '바이퍼', '사이퍼'],
+    description: '요루의 텔레포트로 예측 불가능한 플레이를 합니다.',
+    tier: 'B',
+    playstyle: '기습',
+    strengths: ['예측 불가능', '텔레포터 활용', '후방 기습'],
+    weaknesses: ['요루 숙련도 필요', '팀 플레이 어려움']
+  },
+  // 헤이븐 추가
+  {
+    id: 'haven-3',
+    map: '헤이븐',
+    name: '더블 감시자 조합',
+    agents: ['제트', '소바', '오멘', '킬조이', '사이퍼'],
+    description: '더블 감시자로 3개 사이트를 안정적으로 수비합니다.',
+    tier: 'A',
+    playstyle: '수비 중심',
+    strengths: ['철벽 수비', '완벽한 정보 수집', '플랭크 방지'],
+    weaknesses: ['공격 진입 약함', '플래시 없음']
+  },
+  // 스플릿 추가
+  {
+    id: 'split-2',
+    map: '스플릿',
+    name: '네온 러쉬 조합',
+    agents: ['네온', '스카이', '오멘', '사이퍼', '브리치'],
+    description: '네온의 빠른 속도로 사이트를 빠르게 장악합니다.',
+    tier: 'A',
+    playstyle: '러쉬',
+    strengths: ['빠른 진입', '예측 불가능', '강력한 플래시'],
+    weaknesses: ['네온 숙련도 필요', '오퍼 대응 약함']
+  },
+  // 아이스박스 추가
+  {
+    id: 'icebox-2',
+    map: '아이스박스',
+    name: '더블 컨트롤러 조합',
+    agents: ['제트', '소바', '바이퍼', '오멘', '세이지'],
+    description: '바이퍼와 오멘으로 완벽한 스모크 커버를 제공합니다.',
+    tier: 'A',
+    playstyle: '스모크 중심',
+    strengths: ['완벽한 스모크 커버', '사이트 분리', '세이지 벽 활용'],
+    weaknesses: ['플래시 없음', '진입 지원 약함']
+  },
+  // 브리즈 추가
+  {
+    id: 'breeze-2',
+    map: '브리즈',
+    name: '챔버 오퍼 조합',
+    agents: ['제트', '소바', '바이퍼', '킬조이', '케이오'],
+    description: '넓은 맵에서 오퍼레이터를 최대한 활용하는 조합.',
+    tier: 'S',
+    playstyle: '장거리 전투',
+    strengths: ['오퍼 활용 최적', '넓은 스모크 커버', '정보 수집 우수'],
+    weaknesses: ['근접전 약함', '오퍼 의존도 높음']
+  },
+  // 프랙처 추가
+  {
+    id: 'fracture-2',
+    map: '프랙처',
+    name: '네온 핀서 조합',
+    agents: ['네온', '브리치', '브림스톤', '킬조이', '페이드'],
+    description: '네온의 빠른 속도로 양쪽에서 동시 진입합니다.',
+    tier: 'A',
+    playstyle: '빠른 핀서',
+    strengths: ['빠른 양방향 압박', '강력한 진입', '정보 수집'],
+    weaknesses: ['네온 숙련도 필요', '팀 소통 필수']
+  },
+  // 펄 추가
+  {
+    id: 'pearl-2',
+    map: '펄',
+    name: '하버 조합',
+    agents: ['제트', '페이드', '하버', '킬조이', '케이오'],
+    description: '하버의 물 벽으로 공격적인 진입을 합니다.',
+    tier: 'A',
+    playstyle: '공격적 진입',
+    strengths: ['공격적 진입', '총알 차단', '사이트 분리'],
+    weaknesses: ['하버 숙련도 필요', '스모크 지속시간 짧음']
+  },
+  // 로터스 추가
+  {
+    id: 'lotus-2',
+    map: '로터스',
+    name: '게코 조합',
+    agents: ['제트', '게코', '오멘', '킬조이', '케이오'],
+    description: '게코의 회수 가능한 스킬로 경제적인 플레이를 합니다.',
+    tier: 'A',
+    playstyle: '경제적',
+    strengths: ['스킬 회수', '윙맨 설치', '정보 수집'],
+    weaknesses: ['게코 숙련도 필요', '플래시 타이밍 중요']
+  },
+  // 선셋 추가
+  {
+    id: 'sunset-2',
+    map: '선셋',
+    name: '아이소 조합',
+    agents: ['아이소', '페이드', '클로브', '킬조이', '케이오'],
+    description: '아이소의 쉴드로 안전한 진입을 합니다.',
+    tier: 'B',
+    playstyle: '안전한 진입',
+    strengths: ['쉴드 진입', '1대1 강제', '클로브 부활'],
+    weaknesses: ['아이소 숙련도 필요', '팀 플레이 어려움']
+  }
+];
+
+teamComps.push(...additionalTeamComps);

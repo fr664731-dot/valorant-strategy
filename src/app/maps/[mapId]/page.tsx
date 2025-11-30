@@ -1,6 +1,6 @@
 import AdBanner from '@/components/AdBanner';
 import Link from 'next/link';
-import { getMapById, maps } from '@/data/maps';
+import { getMapWithAdditionalStrategies, getMapById, maps } from '@/data/maps';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
@@ -31,7 +31,7 @@ const difficultyColors: Record<string, string> = {
 
 export default async function MapDetailPage({ params }: { params: Promise<{ mapId: string }> }) {
   const { mapId } = await params;
-  const map = getMapById(mapId);
+  const map = getMapWithAdditionalStrategies(mapId);
 
   if (!map) {
     notFound();

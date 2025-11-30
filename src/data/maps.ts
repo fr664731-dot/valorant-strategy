@@ -639,3 +639,158 @@ export const maps: GameMap[] = [
 export function getMapById(id: string): GameMap | undefined {
   return maps.find(map => map.id === id);
 }
+
+
+// 추가 전략들을 기존 맵에 병합하는 함수
+export const additionalStrategies: Record<string, MapStrategy[]> = {
+  ascent: [
+    {
+      title: '미드 투 B 스플릿',
+      side: '공격',
+      description: '미드를 장악한 후 마켓과 B 메인에서 동시에 B 사이트로 진입합니다. 적의 로테이션을 분산시키는 고급 전략입니다.',
+      agents: ['제트', '소바', '오멘', '킬조이', '브리치'],
+      difficulty: '어려움'
+    },
+    {
+      title: 'A 사이트 페이크 후 B 러쉬',
+      side: '공격',
+      description: 'A 메인에서 스킬을 사용해 페이크를 주고, 빠르게 B로 로테이션하여 러쉬합니다.',
+      agents: ['제트', '소바', '오멘', '킬조이', '케이오'],
+      difficulty: '보통'
+    },
+    {
+      title: '3-2 수비 (미드 중심)',
+      side: '수비',
+      description: 'A에 1명, B에 1명, 미드에 3명을 배치하여 미드 컨트롤을 유지합니다. 정보에 따라 빠르게 로테이션합니다.',
+      agents: ['소바', '오멘', '킬조이', '사이퍼', '제트'],
+      difficulty: '어려움'
+    }
+  ],
+  bind: [
+    {
+      title: '텔레포터 페이크',
+      side: '공격',
+      description: 'A 숏을 압박하다가 텔레포터로 B 롱을 기습합니다. 텔레포터 소리로 적을 혼란에 빠뜨립니다.',
+      agents: ['레이즈', '스카이', '브림스톤', '바이퍼', '요루'],
+      difficulty: '보통'
+    },
+    {
+      title: 'B 사이트 5인 러쉬',
+      side: '공격',
+      description: '훅카와 B 롱에서 동시에 5명이 빠르게 B 사이트로 진입합니다. 스모크와 플래시 타이밍이 중요합니다.',
+      agents: ['레이즈', '스카이', '브림스톤', '바이퍼', '브리치'],
+      difficulty: '쉬움'
+    },
+    {
+      title: '스택 수비 (B 중심)',
+      side: '수비',
+      description: 'B 사이트에 3명을 배치하고 A는 트랩으로 감시합니다. 훅카 러쉬에 강력하게 대응할 수 있습니다.',
+      agents: ['사이퍼', '바이퍼', '브림스톤', '킬조이', '레이즈'],
+      difficulty: '보통'
+    }
+  ],
+  haven: [
+    {
+      title: 'C 사이트 개러지 스플릿',
+      side: '공격',
+      description: 'C 롱과 개러지에서 동시에 C 사이트로 진입합니다. 개러지는 좁아서 수류탄 스킬이 효과적입니다.',
+      agents: ['레이즈', '브리치', '오멘', '킬조이', '소바'],
+      difficulty: '보통'
+    },
+    {
+      title: 'A-C 동시 압박',
+      side: '공격',
+      description: 'A와 C를 동시에 압박하여 B 수비수를 로테이션시킵니다. 약한 사이트로 진입합니다.',
+      agents: ['제트', '소바', '오멘', '킬조이', '브리치'],
+      difficulty: '어려움'
+    },
+    {
+      title: '2-1-2 수비',
+      side: '수비',
+      description: 'A에 2명, B에 1명, C에 2명을 배치합니다. B 수비수는 양쪽 로테이션을 담당합니다.',
+      agents: ['소바', '오멘', '킬조이', '사이퍼', '브리치'],
+      difficulty: '보통'
+    }
+  ],
+  split: [
+    {
+      title: 'A 사이트 램프 스플릿',
+      side: '공격',
+      description: 'A 메인과 A 램프에서 동시에 진입합니다. 램프에서 오는 팀원이 헤븐을 견제합니다.',
+      agents: ['레이즈', '스카이', '오멘', '사이퍼', '브리치'],
+      difficulty: '보통'
+    },
+    {
+      title: '미드 장악 후 선택',
+      side: '공격',
+      description: '미드를 먼저 장악하고 벤트나 메일을 통해 A 또는 B로 진입합니다. 적의 로테이션을 보고 결정합니다.',
+      agents: ['제트', '소바', '오멘', '사이퍼', '브리치'],
+      difficulty: '어려움'
+    },
+    {
+      title: '미드 컨트롤 수비',
+      side: '수비',
+      description: '미드에 2명을 배치하여 미드 컨트롤을 유지합니다. 적이 미드를 포기하면 플랭크를 시도합니다.',
+      agents: ['사이퍼', '오멘', '킬조이', '브리치', '제트'],
+      difficulty: '어려움'
+    }
+  ],
+  icebox: [
+    {
+      title: 'A 사이트 벨트 진입',
+      side: '공격',
+      description: '바이퍼 벽으로 래프터를 차단하고 벨트를 통해 진입합니다. 세이지 벽으로 추가 진입로를 만들 수 있습니다.',
+      agents: ['제트', '소바', '바이퍼', '세이지', '케이오'],
+      difficulty: '보통'
+    },
+    {
+      title: 'B 사이트 튜브 스플릿',
+      side: '공격',
+      description: '튜브와 B 메인에서 동시에 B 사이트로 진입합니다. 튜브에서 오는 팀원이 그린을 견제합니다.',
+      agents: ['제트', '소바', '바이퍼', '세이지', '케이오'],
+      difficulty: '어려움'
+    },
+    {
+      title: 'A 사이트 스택 수비',
+      side: '수비',
+      description: 'A 사이트에 3명을 배치합니다. 래프터와 벨트에서 크로스파이어를 구축합니다.',
+      agents: ['바이퍼', '세이지', '소바', '킬조이', '제트'],
+      difficulty: '보통'
+    }
+  ],
+  breeze: [
+    {
+      title: 'A 사이트 홀 러쉬',
+      side: '공격',
+      description: '바이퍼 벽으로 A 홀을 분리하고 빠르게 진입합니다. 피라미드 주변을 클리어한 후 설치합니다.',
+      agents: ['제트', '소바', '바이퍼', '킬조이', '케이오'],
+      difficulty: '보통'
+    },
+    {
+      title: '미드 도어 컨트롤',
+      side: '공격',
+      description: '미드 도어를 장악하여 A와 B 모두 위협합니다. 도어 컨트롤 후 약한 사이트로 진입합니다.',
+      agents: ['제트', '소바', '바이퍼', '킬조이', '케이오'],
+      difficulty: '어려움'
+    },
+    {
+      title: 'B 사이트 오퍼 수비',
+      side: '수비',
+      description: 'B 사이트에서 오퍼레이터로 B 터널을 감시합니다. 바이퍼 원웨이와 함께 사용하면 강력합니다.',
+      agents: ['바이퍼', '킬조이', '소바', '제트', '케이오'],
+      difficulty: '보통'
+    }
+  ]
+};
+
+// 맵 데이터에 추가 전략 병합
+export function getMapWithAdditionalStrategies(mapId: string): GameMap | undefined {
+  const map = getMapById(mapId);
+  if (!map) return undefined;
+  
+  const additional = additionalStrategies[mapId] || [];
+  return {
+    ...map,
+    strategies: [...map.strategies, ...additional]
+  };
+}
