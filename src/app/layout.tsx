@@ -48,6 +48,18 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3LG2331L3N"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3LG2331L3N');
+            `,
+          }}
+        />
         {/* Google AdSense - 실제 배포시 본인 ID로 교체 */}
         {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossOrigin="anonymous"></script> */}
       </head>
