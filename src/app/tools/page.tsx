@@ -23,6 +23,20 @@ const tools = [
     icon: '⊕',
     features: ['12+ 프로 선수 크로스헤어', '원클릭 복사', '역할별 필터'],
   },
+  {
+    title: '랜덤 요원 룰렛',
+    description: '어떤 요원을 플레이할지 고민될 때!',
+    href: '/tools/random-agent',
+    icon: '🎰',
+    features: ['역할별 필터', '애니메이션 효과', '요원 가이드 연결'],
+  },
+  {
+    title: '경제 계산기',
+    description: '바이/에코/포스바이 최적 전략 추천',
+    href: '/tools/economy',
+    icon: '💰',
+    features: ['실시간 추천', '다음 라운드 예측', '경제 팁 제공'],
+  },
 ];
 
 export default function ToolsPage() {
@@ -66,9 +80,9 @@ export default function ToolsPage() {
         <h2 className="text-xl font-semibold mb-4 text-gray-500">추가 예정</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
-            { title: '랜덤 요원 뽑기', icon: '🎲' },
             { title: '맵 밴픽 도우미', icon: '🗺️' },
             { title: '팀 조합 생성기', icon: '👥' },
+            { title: '발로란트 퀴즈', icon: '❓' },
           ].map((tool) => (
             <div key={tool.title} className="bg-[#1f2326]/50 border border-gray-800 rounded-xl p-4 text-center">
               <span className="text-3xl opacity-50">{tool.icon}</span>
