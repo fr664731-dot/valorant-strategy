@@ -3,7 +3,7 @@ export interface Skill {
   key: string;
   description: string;
   tips: string[];
-  cost?: number | '무료' | '시그니처';
+  cost?: number | string;
   cooldown?: string;
   charges?: number;
   duration?: string;
