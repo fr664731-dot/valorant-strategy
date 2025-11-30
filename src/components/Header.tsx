@@ -12,10 +12,10 @@ export default function Header() {
     { name: '요원', href: '/agents' },
     { name: '팀 조합', href: '/team-comps' },
     { name: '메타', href: '/meta' },
+    { name: '프로 세팅', href: '/pro-settings' },
+    { name: '패치', href: '/patch-notes' },
     { name: '도구', href: '/tools' },
     { name: '영상', href: '/videos' },
-    { name: '초보 가이드', href: '/guides' },
-    { name: '커뮤니티', href: '/community' },
   ];
 
   return (
