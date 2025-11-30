@@ -87,7 +87,32 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ ag
                     <span className="w-10 h-10 bg-[#ff4655] rounded flex items-center justify-center font-bold">
                       {skill.key}
                     </span>
-                    <h3 className="text-lg font-semibold">{skill.name}</h3>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold">{skill.name}</h3>
+                      {/* 스킬 정보 배지 */}
+                      <div className="flex flex-wrap gap-2 mt-1">
+                        {skill.cost && (
+                          <span className="text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-400 rounded">
+                            💰 {typeof skill.cost === 'number' ? `${skill.cost} 크레딧` : skill.cost}
+                          </span>
+                        )}
+                        {skill.charges && skill.charges > 1 && (
+                          <span className="text-xs px-2 py-0.5 bg-blue-500/20 text-blue-400 rounded">
+                            📦 {skill.charges}개
+                          </span>
+                        )}
+                        {skill.cooldown && (
+                          <span className="text-xs px-2 py-0.5 bg-purple-500/20 text-purple-400 rounded">
+                            ⏱️ {skill.cooldown}
+                          </span>
+                        )}
+                        {skill.duration && (
+                          <span className="text-xs px-2 py-0.5 bg-green-500/20 text-green-400 rounded">
+                            ⏳ {skill.duration}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
                   <p className="text-gray-400 mb-4">{skill.description}</p>
                   <div className="space-y-2">
