@@ -33,7 +33,7 @@ export default function CalloutsPage() {
         </div>
       </section>
 
-      <AdBanner />
+      <AdBanner slot="callouts-top" format="horizontal" />
 
       <section className="max-w-7xl mx-auto px-4 py-8">
         {/* Map Selector */}
@@ -197,7 +197,7 @@ export default function CalloutsPage() {
         )}
       </section>
 
-      <AdBanner />
+      <AdBanner slot="callouts-bottom" format="horizontal" />
 
       {/* Tips */}
       <section className="max-w-4xl mx-auto px-4 py-8">
