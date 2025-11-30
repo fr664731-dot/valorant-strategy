@@ -1,6 +1,7 @@
 import AdBanner from '@/components/AdBanner';
 import Link from 'next/link';
 import { getAgentById, agents } from '@/data/agents';
+import { getAgentDetail } from '@/data/agentDetails';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
@@ -39,6 +40,7 @@ const difficultyColors: Record<string, string> = {
 export default async function AgentDetailPage({ params }: { params: Promise<{ agentId: string }> }) {
   const { agentId } = await params;
   const agent = getAgentById(agentId);
+  const detail = getAgentDetail(agentId);
 
   if (!agent) {
     notFound();
@@ -161,6 +163,113 @@ export default async function AgentDetailPage({ params }: { params: Promise<{ ag
           </div>
         </div>
       </div>
+
+      {/* 상세 가이드 섹션 */}
+      {detail && (
+        <div className="mt-12 space-y-8">
+          {/* 콤보 */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">스킬 콤보</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {detail.combos.map((combo, i) => (
+                <div key={i} className="bg-[#1f2326] border border-gray-700 rounded-xl p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-[#ff4655]">{combo.name}</h3>
+                    <span className={`text-xs px-2 py-1 rounded ${
+                      combo.difficulty === '쉬움' ? 'bg-green-500/20 text-green-400' :
+                      combo.difficulty === '보통' ? 'bg-yellow-500/20 text-yellow-400' :
+                      'bg-red-500/20 text-red-400'
+                    }`}>{combo.difficulty}</span>
+                  </div>
+                  <p className="text-gray-400 text-sm">{combo.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 상황별 플레이 */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">상황별 플레이</h2>
+            <div className="bg-[#1f2326] border border-gray-700 rounded-xl p-6">
+              <div className="space-y-4">
+                {detail.situationalPlays.map((play, i) => (
+                  <div key={i} className="border-b border-gray-700 pb-4 last:border-0 last:pb-0">
+                    <h3 className="font-semibold text-blue-400 mb-1">{play.situation}</h3>
+                    <p className="text-gray-400 text-sm">{play.play}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 매치업 */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">매치업 가이드</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {detail.matchups.map((matchup, i) => (
+                <div key={i} className="bg-[#1f2326] border border-gray-700 rounded-xl p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold">vs {matchup.enemy}</span>
+                    <span className={`text-xs px-2 py-1 rounded ${
+                      matchup.advantage === 'strong' ? 'bg-green-500/20 text-green-400' :
+                      matchup.advantage === 'even' ? 'bg-yellow-500/20 text-yellow-400' :
+                      'bg-red-500/20 text-red-400'
+                    }`}>
+                      {matchup.advantage === 'strong' ? '유리' : matchup.advantage === 'even' ? '동등' : '불리'}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">{matchup.tip}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 흔한 실수 & 고급 팁 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-red-400">흔한 실수</h2>
+              <div className="bg-[#1f2326] border border-gray-700 rounded-xl p-5">
+                <ul className="space-y-2">
+                  {detail.commonMistakes.map((mistake, i) => (
+                    <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                      <span className="text-red-400">✗</span>
+                      {mistake}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-green-400">고급 팁</h2>
+              <div className="bg-[#1f2326] border border-gray-700 rounded-xl p-5">
+                <ul className="space-y-2">
+                  {detail.advancedTips.map((tip, i) => (
+                    <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                      <span className="text-green-400">★</span>
+                      {tip}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* 경제 팁 */}
+          <div>
+            <h2 className="text-xl font-bold mb-4">💰 경제 팁</h2>
+            <div className="bg-[#1f2326] border border-gray-700 rounded-xl p-5">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {detail.economyTips.map((tip, i) => (
+                  <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                    <span className="text-yellow-400">•</span>
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
