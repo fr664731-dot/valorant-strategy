@@ -36,8 +36,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   verification: {
-    // Google Search Console 인증 후 추가
-    // google: "인증코드",
+    google: "BBDle2H1N6g_3XGHGG0ObJEWzpgZYs43-lLDtpGZvkg",
   },
 };
 
